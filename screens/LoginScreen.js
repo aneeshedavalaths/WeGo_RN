@@ -8,41 +8,44 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-export default class SignUpScreen extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <StatusBar translucent backgroundColor="transparent" />
-        <Text style={styles.textProp}>Sign up</Text>
+export default function LoginScreen({navigation}) {
+  const pressHandler = () => {
+    navigation.navigate('SignUp');
+  };
+  return (
+    <View style={styles.container}>
+      <StatusBar translucent backgroundColor="transparent" />
+      <Text style={styles.textProp}>Login</Text>
+      <View>
+        <TextInput
+          placeholderTextColor={'#BDC7D4'}
+          placeholder={'Email'}
+          style={styles.emailField}
+        />
         <View>
           <TextInput
             placeholderTextColor={'#BDC7D4'}
-            placeholder={'Email'}
-            style={styles.emailField}
+            placeholder={'Password'}
+            style={styles.pwdField}
           />
           <View>
-            <TextInput
-              placeholderTextColor={'#BDC7D4'}
-              placeholder={'Password'}
-              style={styles.pwdField}
-            />
+            <TouchableOpacity style={styles.signButton} activeOpacity={0.5}>
+              <Text style={styles.btnTxt}> Sign in </Text>
+            </TouchableOpacity>
             <View>
-              <TouchableOpacity style={styles.signButton} activeOpacity={0.5}>
-                <Text style={styles.btnTxt}> Sign up </Text>
+              <Text style={styles.bodyTxt}>Create account?</Text>
+              <TouchableOpacity onPress={pressHandler}>
+                <Text style={styles.signUpTxt}>Sign up </Text>
               </TouchableOpacity>
-              <View>
-                <Text style={styles.bodyTxt}>Already a member? </Text>
-                <Text style={styles.signInTxt}>Sign in </Text>
-              </View>
-              <View>
-                <Text style={styles.footerTxt}>WeGo</Text>
-              </View>
+            </View>
+            <View>
+              <Text style={styles.footerTxt}>WeGo</Text>
             </View>
           </View>
         </View>
       </View>
-    );
-  }
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -121,7 +124,7 @@ const styles = StyleSheet.create({
     marginLeft: 0,
     alignSelf: 'center',
   },
-  signInTxt: {
+  signUpTxt: {
     fontFamily: 'Montserrat-Bold',
     fontSize: 14,
     color: '#0176FB',

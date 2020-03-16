@@ -7,16 +7,13 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
-import SignUpScreen from './SignUpScreen';
 
-class LoginScreen extends React.Component {
+export default class SignUpScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
         <StatusBar translucent backgroundColor="transparent" />
-        <Text style={styles.textProp}>Login</Text>
+        <Text style={styles.textProp}>Sign up</Text>
         <View>
           <TextInput
             placeholderTextColor={'#BDC7D4'}
@@ -31,13 +28,12 @@ class LoginScreen extends React.Component {
             />
             <View>
               <TouchableOpacity style={styles.signButton} activeOpacity={0.5}>
-                <Text style={styles.btnTxt}> Sign in </Text>
+                <Text style={styles.btnTxt}> Sign up </Text>
               </TouchableOpacity>
               <View>
-                <Text style={styles.bodyTxt}>Create account?</Text>
-                <TouchableOpacity
-                  onPress={() => this.props.navigation.navigate('signup')}>
-                  <Text style={styles.signUpTxt}>Sign up </Text>
+                <Text style={styles.bodyTxt}>Already a member? </Text>
+                <TouchableOpacity>
+                  <Text style={styles.signInTxt}>Sign in </Text>
                 </TouchableOpacity>
               </View>
               <View>
@@ -50,16 +46,6 @@ class LoginScreen extends React.Component {
     );
   }
 }
-const RootStack = createStackNavigator(
-  {
-    Home: LoginScreen,
-    signup: SignUpScreen,
-  },
-  {
-    headerMode: 'none',
-  },
-);
-export default createAppContainer(RootStack);
 
 const styles = StyleSheet.create({
   container: {
@@ -137,7 +123,7 @@ const styles = StyleSheet.create({
     marginLeft: 0,
     alignSelf: 'center',
   },
-  signUpTxt: {
+  signInTxt: {
     fontFamily: 'Montserrat-Bold',
     fontSize: 14,
     color: '#0176FB',

@@ -2,10 +2,10 @@
  * @format
  */
 
-import {AppRegistry} from 'react-native';
-import SignUpScreen from './SignUpScreen';
-import LoginScreen from './LoginScreen';
-import SplashScreen from './SplashScreen';
+import { AppRegistry } from 'react-native';
+import SignUpScreen from './screens/SignUpScreen';
+import LoginScreen from './screens/LoginScreen';
+import SplashScreen from './screens/SplashScreen';
 
 import {name as appName} from './app.json';
 
