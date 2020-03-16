@@ -8,44 +8,45 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-export default function LoginScreen() {
-  return (
-    <View style={styles.container}>
-      <StatusBar translucent backgroundColor="transparent" />
-      <Text style={styles.textProp}>Login</Text>
-      <View>
-        <TextInput
-          placeholderTextColor={'#BDC7D4'}
-          placeholder={'Email'}
-          style={styles.emailField}
-        />
+export default class LoginScreen extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <StatusBar translucent backgroundColor="transparent" />
+        <Text style={styles.textProp}>Login</Text>
         <View>
           <TextInput
             placeholderTextColor={'#BDC7D4'}
-            placeholder={'Password'}
-            style={styles.pwdField}
+            placeholder={'Email'}
+            style={styles.emailField}
           />
           <View>
-            <TouchableOpacity style={styles.signButton} activeOpacity={0.5}>
-              <Text style={styles.btnTxt}> Sign in </Text>
-            </TouchableOpacity>
+            <TextInput
+              placeholderTextColor={'#BDC7D4'}
+              placeholder={'Password'}
+              style={styles.pwdField}
+            />
             <View>
-              <Text style={styles.bodyTxt}>Create account?</Text>
-              <TouchableOpacity
-                onPress={() => this.props.navigation.navigator('SignUp')}>
-                <Text style={styles.signUpTxt}>Sign up </Text>
+              <TouchableOpacity style={styles.signButton} activeOpacity={0.5}>
+                <Text style={styles.btnTxt}> Sign in </Text>
               </TouchableOpacity>
-            </View>
-            <View>
-              <Text style={styles.footerTxt}>WeGo</Text>
+              <View>
+                <Text style={styles.bodyTxt}>Create account?</Text>
+                <TouchableOpacity
+                  onPress={() => this.props.navigation.navigator('SignUp')}>
+                  <Text style={styles.signUpTxt}>Sign up </Text>
+                </TouchableOpacity>
+              </View>
+              <View>
+                <Text style={styles.footerTxt}>WeGo</Text>
+              </View>
             </View>
           </View>
         </View>
       </View>
-    </View>
-  );
+    );
+  }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
