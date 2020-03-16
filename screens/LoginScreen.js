@@ -8,10 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-export default function LoginScreen({navigation}) {
-  const pressHandler = () => {
-    navigation.navigate('SignUp');
-  };
+export default function LoginScreen() {
   return (
     <View style={styles.container}>
       <StatusBar translucent backgroundColor="transparent" />
@@ -34,7 +31,8 @@ export default function LoginScreen({navigation}) {
             </TouchableOpacity>
             <View>
               <Text style={styles.bodyTxt}>Create account?</Text>
-              <TouchableOpacity onPress={pressHandler}>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigator('SignUp')}>
                 <Text style={styles.signUpTxt}>Sign up </Text>
               </TouchableOpacity>
             </View>
