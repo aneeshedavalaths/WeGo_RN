@@ -7,8 +7,11 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+import SignUpScreen from './SignUpScreen';
 
-export default class LoginScreen extends React.Component {
+class LoginScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -31,11 +34,11 @@ export default class LoginScreen extends React.Component {
                 <Text style={styles.btnTxt}> Sign in </Text>
               </TouchableOpacity>
               <View>
-                <Text style={styles.bodyTxt}>
-                  Create account?
-                  <Text style={styles.signUpTxt}>Sign up</Text>
-                </Text>
-                <View />
+                <Text style={styles.bodyTxt}>Create account?</Text>
+                <TouchableOpacity
+                  onPress={() => this.props.navigation.navigate('signup')}>
+                  <Text style={styles.signUpTxt}>Sign up </Text>
+                </TouchableOpacity>
               </View>
               <View>
                 <Text style={styles.footerTxt}>WeGo</Text>
@@ -47,6 +50,16 @@ export default class LoginScreen extends React.Component {
     );
   }
 }
+const RootStack = createStackNavigator(
+  {
+    Home: LoginScreen,
+    signup: SignUpScreen,
+  },
+  {
+    headerMode: 'none',
+  },
+);
+export default createAppContainer(RootStack);
 
 const styles = StyleSheet.create({
   container: {
@@ -128,16 +141,16 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Bold',
     fontSize: 14,
     color: '#0176FB',
+    alignSelf: 'center',
   },
   footerTxt: {
     fontFamily: 'Montserrat-Bold',
     fontSize: 20,
     alignSelf: 'center',
     color: '#314256',
-    marginTop: 0,
+    marginTop: 90,
     marginBottom: 16,
     marginRight: 0,
     marginLeft: 0,
-    paddingTop: 100,
   },
 });

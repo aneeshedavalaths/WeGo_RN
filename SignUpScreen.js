@@ -31,11 +31,8 @@ export default class SignUpScreen extends React.Component {
                 <Text style={styles.btnTxt}> Sign up </Text>
               </TouchableOpacity>
               <View>
-                <Text style={styles.bodyTxt}>
-                  Already a member?
-                  <Text style={styles.signInTxt}>Sign in</Text>
-                </Text>
-                <View />
+                <Text style={styles.bodyTxt}>Already a member? </Text>
+                <Text style={styles.signInTxt}>Sign in </Text>
               </View>
               <View>
                 <Text style={styles.footerTxt}>WeGo</Text>
@@ -128,16 +125,16 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Bold',
     fontSize: 14,
     color: '#0176FB',
+    alignSelf: 'center',
   },
   footerTxt: {
     fontFamily: 'Montserrat-Bold',
     fontSize: 20,
     alignSelf: 'center',
     color: '#314256',
-    marginTop: 0,
+    marginTop: 90,
     marginBottom: 16,
     marginRight: 0,
     marginLeft: 0,
-    paddingTop: 100,
   },
 });
